@@ -100,7 +100,7 @@ char		*ft_itoall_base(long long n, int base, enum e_bool capital)
 	{
 		n = -n;
 		if ((res = (char *)ft_memalloc(sizeof(char) *
-			ft_nb_digit(n) + 2)) == NULL)
+		(ft_nb_digit(n) + 2))) == NULL)
 			return (NULL);
 		res[0] = '-';
 		i++;
@@ -108,7 +108,7 @@ char		*ft_itoall_base(long long n, int base, enum e_bool capital)
 	else
 	{
 		if ((res = (char *)ft_memalloc(sizeof(char) *
-			ft_nb_digit(n) + 1)) == NULL)
+		(ft_nb_digit(n) + 1))) == NULL)
 			return (NULL);
 	}
 	ft_itoa_rec(res, n, &i, capital ? base : -base);

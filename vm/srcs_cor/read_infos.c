@@ -6,7 +6,7 @@
 /*   By: gzanarel <gzanarel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/15 13:32:47 by gzanarel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/03/22 20:21:27 by gzanarel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/04/02 19:42:56 by gzanarel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,6 +40,8 @@ void	read_infos(t_cor *c)
 		c->chmp[i]->comment = ft_strdup(h->comment);
 		if ((c->chmp[i]->champ_size = little_endian(h->prog_size)) > 682)
 			ft_exit(&(c->vm->logs), 3, c->chmp[i]->name, c);
+		if (lseek(fd, 0, SEEK_END) > 2874)
+			ft_exit(&(c->vm->logs), 4, c->chmp[i]->name, c);
 		c->chmp[i]->infos = ft_strnew(c->chmp[i]->champ_size);
 		read(fd, c->chmp[i]->infos, c->chmp[i]->champ_size);
 		close(fd);

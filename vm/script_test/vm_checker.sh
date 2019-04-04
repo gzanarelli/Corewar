@@ -14,9 +14,6 @@ function rm_files {
     if [ -f grp_res ]; then
         rm -f grp_res
     fi
-    if [ -f diff ]; then
-        rm -f diff
-    fi
 }
 
 function usage {
@@ -192,7 +189,7 @@ function print_param {
     printf "Verbose: %d | Number of chmps: %d | Nb_tests: %d\n\n\033[0m" $verb $numb $max
 }
 
-if [ "$#" -ge 1 ] && [ -f grp_cor ]; then
+if [ "$#" -ge 1 ]; then
     rm_files
     parse "$@"
     if [ "$stop" -le "0" ] && [ "$numb" -le "0" ]; then
@@ -205,10 +202,8 @@ if [ "$#" -ge 1 ] && [ -f grp_cor ]; then
         print_param
         exec_cor
     fi
-    rm_files
     result
 else
-    echo "Copy executable corewar in script_test/grp_cor"
     usage
     exit
 fi

@@ -100,7 +100,8 @@ char		*ft_itoaull_base(unsigned long long n, long long base,
 	if (base > 16)
 		return (NULL);
 	i = 0;
-	if ((res = (char *)ft_memalloc(sizeof(char) * ft_nb_digit(n) + 1)) == NULL)
+	if ((res = (char *)ft_memalloc(sizeof(char) *
+	(ft_nb_digit(n) + 1))) == NULL)
 		return (NULL);
 	ft_itoa_rec(res, n, &i, capital ? base : -base);
 	res[i] = '\0';

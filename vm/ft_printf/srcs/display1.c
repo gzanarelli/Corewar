@@ -81,14 +81,16 @@ int		display_format(t_format *infos, va_list *args, t_logs *logs)
 	char		*final;
 	int			len;
 	enum e_bool	isnull;
+	char		*ret;
 
 	if (!(res = process_type_with_modifier(infos, args)))
 		return (-1);
 	isnull = ft_strcmp(res, "^@") == 0;
 	if (res[0] == '-' && infos->is_numeric)
 	{
-		free(res);
+		ret = res;
 		res = ft_strsub(res, 1, ft_strlen(res) - 1);
+		free(ret);
 		infos->is_negative = TRUE;
 	}
 	if (!(final = process_flags_and_precision(res, infos)))

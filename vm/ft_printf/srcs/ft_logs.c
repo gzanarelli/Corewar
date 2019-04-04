@@ -19,7 +19,7 @@ int		init_logs(t_logs *logs)
 
 	if (!logs || logs->buffer)
 		return (0);
-	if (!(logs->buffer = (char *)malloc(sizeof(char) * LOGS_LEN + 1)))
+	if (!(logs->buffer = (char *)malloc(sizeof(char) * (LOGS_LEN + 1))))
 		return (0);
 	i = -1;
 	while (++i < LOGS_LEN + 1)

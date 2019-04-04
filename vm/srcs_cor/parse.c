@@ -6,7 +6,7 @@
 /*   By: gzanarel <gzanarel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/15 13:31:55 by gzanarel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/04/02 19:39:20 by gzanarel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/04/04 15:43:53 by gzanarel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,7 +56,6 @@ static int	check_files(t_cor *c, t_vm *vm, char *av, int len)
 		ft_exit(&(vm->logs), 7, av, c);
 	tmp = ft_strsub(av, (len - 4), len);
 	if (ft_strcmp(".cor", tmp))
-	
 		ft_exit(&(vm->logs), 2, av, c);
 	else if (vm->nb_player < MAX_PLAYERS)
 		vm->player[vm->nb_player++] = ft_strdup(av);

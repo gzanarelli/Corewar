@@ -28,7 +28,7 @@ do
 	file=`echo $f | rev | cut -d \/ -f 1 | cut -c 3- | rev`
 
 	## Compile le champion avec l'asm de zaz et stocke la sortie dans un fichier
-	./$zazasm $f >> test/result/$file
+	./$zazasm $f > test/result/$file
 	if [ -f ${f%.s}.cor ]; then
 		hexdump -Cv ${f%.s}.cor >> test/zazasm/dump/$file
 		mv ${f%.s}.cor test/zazasm/
@@ -48,21 +48,21 @@ do
 
 	## Compare les resultats
 	if [ -f test/zazasm/${file}.cor ] && [ -f test/myasm/${file}.cor ]; then
-		echo "${Green}$f ✅"
+		echo "${Green}$f ✅${Color_Off}"
 		head -n 29 test/result/$file | tail -2
 	elif [ -f test/zazasm/${file}.cor ]; then
-		echo "${Red}$f ❌"
+		echo "${Red}$f ❌${Color_Off}"
 		head -n 29 test/result/$file | tail -2
 	else
-		echo "${Yellow}$f ⚠️"
+		echo "${Yellow}$f ⚠️${Color_Off}"
 		head -n 29 test/result/$file | tail -2
 	fi
 	## Check les hexdump
 	if [ -s test/result/dump/$file ]
 	then
-		echo "Dump : KO${Color_Off}"
+		echo "${Red}Dump : KO${Color_Off}"
 	else
-		echo "Dump : OK${Color_Off}"
+		echo "${Green}Dump : OK${Color_Off}"
 	fi
 	echo "==============================="
 

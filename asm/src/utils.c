@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   utils.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: quruiz <quruiz@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: gzanarel <gzanarel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/24 21:29:23 by quruiz       #+#   ##    ##    #+#       */
-/*   Updated: 2019/04/04 18:33:53 by quruiz      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/04/09 12:31:21 by gzanarel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ int		check_file(t_asm **env, char **arg)
 {
 	char	*buf;
 
-	buf	= NULL;
+	buf = NULL;
 	if (!check_extension(arg[1]))
 		return (err_code(BAD_FILENAME, NULL, NULL));
 	if (!(*env = ft_memalloc(sizeof(t_asm))))
